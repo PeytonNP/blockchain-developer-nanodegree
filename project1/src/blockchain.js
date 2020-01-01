@@ -233,6 +233,7 @@ class Blockchain {
                                 }
                                
                                });
+            resolve(errorLog); // after submission forgot resolve statement
         });
     }
 
