@@ -46,13 +46,13 @@ class Block {
             // Returning the Block is not valid
             // Returning the Block is valid
             self.hash = null;
-            let calculatedHash = SHA256(JSON.stringify(self)).toString();
-            if (currentHash == calculatedHash){
+            let calculatedHash = SHA256(JSON.stringify(this)).toString();
+            if (currentHash === calculatedHash){
                 // the block is valid; data has not changed
                 resolve("The block is valid");
             } else{
                 // the block is not valid; data has changed
-                reject("Could not validate block");
+                resolve("Could not validate block"); // use reject only for errors and exceptions
             }
         });
     }
@@ -77,7 +77,11 @@ class Block {
         // If it is not the genesis block, return its data as mentioned above.
         
         if (this.height > 0) {
-            return JSON.parse(hex2ascii(this.body));
+            let blockData = JSON.parse(hex2ascii(this.body));
+            if (blockData != null) {
+                return blockData;
+            }
+            // return JSON.parse(hex2ascii(this.body));
         }
 
     }

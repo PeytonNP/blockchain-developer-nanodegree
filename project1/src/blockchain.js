@@ -64,7 +64,41 @@ class Blockchain {
     _addBlock(block) {
         let self = this;
         return new Promise(async (resolve, reject) => {
-           
+            let blockToAdd = block;
+            blockToAdd.time = new Date().getTime().toString().slice(0,-3);
+            
+            /*let currHeight = self.getChainHeight();
+            let currNumHeight = this.height;
+            console.log(currHeight);
+            console.log(currHeight.valueOf());
+            console.log(currHeight < 0);
+            console.log(typeof currHeight);
+            console.log(typeof 0);
+            
+            console.log(currNumHeight);
+            console.log(typeof currNumHeight);
+            console.log(currNumHeight < 0);*/
+            
+            let currHeight = this.height;
+            
+            // Trying to add the genesis block; else add other block
+            if (currHeight < 0) {           
+                blockToAdd.height = currHeight + 1;                                 // update height of block object
+                blockToAdd.hash = SHA256(JSON.stringify(blockToAdd)).toString();    // update hash of block object
+                self.chain.push(blockToAdd);                                        // push to chain
+                self.height = self.chain.length - 1;                                // update height of chain
+                resolve(blockToAdd);
+            } else {
+                // blockToAdd.previousBlockHash = self.chain[self.height].hash      // set previousBlockHash
+                let prevBlock = self.chain[self.height];                            // get previous block in chain
+                blockToAdd.previousBlockHash = prevBlock.hash;                      // set previousBlockHash for new block object
+                blockToAdd.height = currHeight + 1;                                 // update height of block object
+                blockToAdd.hash = SHA256(JSON.stringify(blockToAdd)).toString();    // update hash of block object
+                self.chain.push(blockToAdd);                                        // push to chain
+                self.height = self.chain.length - 1;                                // update height of chain
+                resolve(blockToAdd);
+            }
+            reject("Error occurred when trying to add new block: '_addBlock'");
         });
     }
 
@@ -78,7 +112,7 @@ class Blockchain {
      */
     requestMessageOwnershipVerification(address) {
         return new Promise((resolve) => {
-            
+            resolve(`address:${new Date().getTime().toString().slice(0,-3)}:starRegistry`);
         });
     }
 
@@ -90,7 +124,7 @@ class Blockchain {
      * Algorithm steps:
      * 1. Get the time from the message sent as a parameter example: `parseInt(message.split(':')[1])`
      * 2. Get the current time: `let currentTime = parseInt(new Date().getTime().toString().slice(0, -3));`
-     * 3. Check if the time elapsed is less than 5 minutes
+     * 3. Check if the time elapsed is less than 5 minutes (300,000 ms = 5 min)
      * 4. Veify the message with wallet address and signature: `bitcoinMessage.verify(message, address, signature)`
      * 5. Create the block and add it to the chain
      * 6. Resolve with the block added.
@@ -102,6 +136,20 @@ class Blockchain {
     submitStar(address, message, signature, star) {
         let self = this;
         return new Promise(async (resolve, reject) => {
+            
+            let timeFromMessage = parseInt(message.split(':')[1]);
+            let currentTime = parseInt(new Date().getTime().toString().slice(0, -3));
+            let timeAddFiveMin = timeFromMessage + 300000;
+            
+            if (timeAddFiveMin >= currentTime) {    // within 5 minutes
+                
+                if (bitcoinMessage.verify(message, address, signature)) {       // signature verified
+                    let newBlockAdded = self._addBlock(new BlockClass.Block({address: address, message: message, signature: signature, star: star}));
+                    resolve(newBlockAdded);
+                }    
+            } else {                                // over 5 minutes passed
+                reject("Error occurred when trying to submitStar: '_submitStar' over 5 minutes passed");
+            }
             
         });
     }
@@ -115,7 +163,13 @@ class Blockchain {
     getBlockByHash(hash) {
         let self = this;
         return new Promise((resolve, reject) => {
-           
+            let blockWithHash = self.chain.filter(blockObj => blockObj.hash === hash)[0];
+            if(blockWithHash) {
+                resolve(blockWithHash);
+            } else {
+                resolve(null);
+            }
+            
         });
     }
 
@@ -146,7 +200,13 @@ class Blockchain {
         let self = this;
         let stars = [];
         return new Promise((resolve, reject) => {
-            
+            self.chain.forEach((currBlock) => {
+                               let currBlockData = currBlock.getBData();
+                                if (currBlockData.address === address) {
+                                    stars.push(currBlockData.star);
+                                }
+                               });
+            resolve(stars);
         });
     }
 
@@ -160,7 +220,19 @@ class Blockchain {
         let self = this;
         let errorLog = [];
         return new Promise(async (resolve, reject) => {
-            
+            let currBlockIndex = 0;
+            self.chain.forEach((currBlock) => {
+                               let validRes = currBlock.validate();
+                                if (!validRes) {
+                                    errorLog.push("Block is not valid");
+                                }
+                                if (currBlock.height > 0) {
+                                    if(currBlock.previousBlockHash != self.chain[currBlockIndex - 1].hash) {
+                                        errorLog.push("Chain is broken. The hash of the previous block does not equal the currBlock's previous hash value");
+                                    }
+                                }
+                               
+                               });
         });
     }
 
