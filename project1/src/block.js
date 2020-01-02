@@ -47,12 +47,14 @@ class Block {
             // Returning the Block is valid
             self.hash = null;
             let calculatedHash = SHA256(JSON.stringify(this)).toString();
+            self.hash = currentHash;
+            
             if (currentHash === calculatedHash){
                 // the block is valid; data has not changed
-                resolve("The block is valid");
+                resolve(true);
             } else{
                 // the block is not valid; data has changed
-                resolve("Could not validate block"); // use reject only for errors and exceptions
+                resolve(false); // use reject only for errors and exceptions
             }
         });
     }

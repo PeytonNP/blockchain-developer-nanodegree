@@ -66,7 +66,7 @@ class Blockchain {
         return new Promise(async (resolve, reject) => {
             let blockToAdd = block;
             blockToAdd.time = new Date().getTime().toString().slice(0,-3);
-            
+
             /*let currHeight = self.getChainHeight();
             let currNumHeight = this.height;
             console.log(currHeight);
@@ -74,13 +74,13 @@ class Blockchain {
             console.log(currHeight < 0);
             console.log(typeof currHeight);
             console.log(typeof 0);
-            
+
             console.log(currNumHeight);
             console.log(typeof currNumHeight);
             console.log(currNumHeight < 0);*/
-            
+
             let currHeight = this.height;
-            
+
             // Trying to add the genesis block; else add other block
             if (currHeight < 0) {           
                 blockToAdd.height = currHeight + 1;                                 // update height of block object
@@ -112,7 +112,7 @@ class Blockchain {
      */
     requestMessageOwnershipVerification(address) {
         return new Promise((resolve) => {
-            resolve(`address:${new Date().getTime().toString().slice(0,-3)}:starRegistry`);
+            resolve(`${address}:${new Date().getTime().toString().slice(0,-3)}:starRegistry`);
         });
     }
 
@@ -136,13 +136,13 @@ class Blockchain {
     submitStar(address, message, signature, star) {
         let self = this;
         return new Promise(async (resolve, reject) => {
-            
+
             let timeFromMessage = parseInt(message.split(':')[1]);
             let currentTime = parseInt(new Date().getTime().toString().slice(0, -3));
             let timeAddFiveMin = timeFromMessage + 300000;
-            
+
             if (timeAddFiveMin >= currentTime) {    // within 5 minutes
-                
+
                 if (bitcoinMessage.verify(message, address, signature)) {       // signature verified
                     let newBlockAdded = self._addBlock(new BlockClass.Block({address: address, message: message, signature: signature, star: star}));
                     resolve(newBlockAdded);
@@ -150,7 +150,7 @@ class Blockchain {
             } else {                                // over 5 minutes passed
                 reject("Error occurred when trying to submitStar: '_submitStar' over 5 minutes passed");
             }
-            
+
         });
     }
 
@@ -169,7 +169,7 @@ class Blockchain {
             } else {
                 resolve(null);
             }
-            
+
         });
     }
 
@@ -201,11 +201,11 @@ class Blockchain {
         let stars = [];
         return new Promise((resolve, reject) => {
             self.chain.forEach((currBlock) => {
-                               let currBlockData = currBlock.getBData();
-                                if (currBlockData.address === address) {
-                                    stars.push(currBlockData.star);
-                                }
-                               });
+                let currBlockData = currBlock.getBData();
+                if (currBlockData.address === address) {
+                    stars.push(currBlockData.star);
+                }
+            });
             resolve(stars);
         });
     }
@@ -221,18 +221,18 @@ class Blockchain {
         let errorLog = [];
         return new Promise(async (resolve, reject) => {
             let currBlockIndex = 0;
-            self.chain.forEach((currBlock) => {
-                               let validRes = currBlock.validate();
-                                if (!validRes) {
-                                    errorLog.push("Block is not valid");
-                                }
-                                if (currBlock.height > 0) {
-                                    if(currBlock.previousBlockHash != self.chain[currBlockIndex - 1].hash) {
-                                        errorLog.push("Chain is broken. The hash of the previous block does not equal the currBlock's previous hash value");
-                                    }
-                                }
-                               
-                               });
+            self.chain.forEach(async (currBlock) => {
+                let validRes = await currBlock.validate();
+                if (!validRes) {
+                    errorLog.push("Block is not valid");
+                }
+                if (currBlock.height > 0) {
+                    if(currBlock.previousBlockHash != self.chain[currBlockIndex - 1].hash) {
+                        errorLog.push("Chain is broken. The hash of the previous block does not equal the currBlock's previous hash value");
+                    }
+                }
+                currBlockIndex++;
+            });
             resolve(errorLog); // after submission forgot resolve statement
         });
     }
