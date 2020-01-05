@@ -49,13 +49,15 @@ class Block {
             let calculatedHash = SHA256(JSON.stringify(this)).toString();
             self.hash = currentHash;
             
-            if (currentHash === calculatedHash){
+            resolve(currentHash === calculatedHash);
+            
+            /*if (currentHash === calculatedHash){
                 // the block is valid; data has not changed
                 resolve(true);
             } else{
                 // the block is not valid; data has changed
                 resolve(false); // use reject only for errors and exceptions
-            }
+            }*/
         });
     }
 

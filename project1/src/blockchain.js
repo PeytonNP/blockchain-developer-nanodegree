@@ -139,12 +139,12 @@ class Blockchain {
 
             let timeFromMessage = parseInt(message.split(':')[1]);
             let currentTime = parseInt(new Date().getTime().toString().slice(0, -3));
-            let timeAddFiveMin = timeFromMessage + 300000;
+            let timeAddFiveMin = timeFromMessage + 300;
 
             if (timeAddFiveMin >= currentTime) {    // within 5 minutes
 
                 if (bitcoinMessage.verify(message, address, signature)) {       // signature verified
-                    let newBlockAdded = self._addBlock(new BlockClass.Block({address: address, message: message, signature: signature, star: star}));
+                    let newBlockAdded = await self._addBlock(new BlockClass.Block({address: address, star: star}));
                     resolve(newBlockAdded);
                 }    
             } else {                                // over 5 minutes passed
@@ -202,8 +202,8 @@ class Blockchain {
         return new Promise((resolve, reject) => {
             self.chain.forEach((currBlock) => {
                 let currBlockData = currBlock.getBData();
-                if (currBlockData.address === address) {
-                    stars.push(currBlockData.star);
+                if (currBlockData && currBlockData.address === address) {
+                    stars.push(currBlockData);
                 }
             });
             resolve(stars);
