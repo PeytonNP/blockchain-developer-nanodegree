@@ -293,7 +293,7 @@ contract ERC721 is Pausable, ERC165 {
         _tokenOwner[tokenId] = to;
 
         // TODO: emit correct event
-        emit Transfer(from, to, uint256 tokenId);
+        emit Transfer(from, to, tokenId);
     }
 
     /**
@@ -523,15 +523,15 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     }
 
     // TODO: create external getter functions for name, symbol, and baseTokenURI
-    function getName() public view returns(string) {
+    function getName() public view returns(string memory) {
         return _name;
     }
 
-    function getSymbol public view returns (string) {
+    function getSymbol() public view returns (string memory) {
         return _symbol;
     }
 
-    function getBaseTokenURI public view returns (string) {
+    function getBaseTokenURI() public view returns (string memory) {
         return _baseTokenURI;
     }
 
@@ -548,7 +548,7 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     // require the token exists before setting
     function setTokenURI(uint256 tokenId) internal {
         require(_exists(tokenId), "The given tokenId does not exist");
-        _tokenURIs[tokenId] = strContact(_baseTokenURI + uint2str(tokenId));
+        _tokenURIs[tokenId] = strConcat(getBaseTokenURI(), uint2str(tokenId));
     }
 
 }
@@ -564,9 +564,9 @@ contract CustomERC721Token is ERC721Metadata("sampleName", "sampleSymbol", "http
     //      -takes in a 'to' address, tokenId, and tokenURI as parameters
     //      -returns a true boolean upon completion of the function
     //      -calls the superclass mint and setTokenURI functions
-    function _mint(address to, uint256 tokenId, string tokenURI) public onlyOwner returns(bool) {
+    function _mint(address to, uint256 tokenId, string memory tokenURI) public onlyOwner returns(bool) {
         super._mint(to, tokenId);
-        super.setTokenURI(tokenURI);
+        super.setTokenURI(tokenId);
         return true;
     }
 }

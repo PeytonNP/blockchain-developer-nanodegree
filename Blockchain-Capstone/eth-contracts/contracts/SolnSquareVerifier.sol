@@ -2,14 +2,14 @@ pragma solidity >=0.4.21 <0.6.0;
 import './ERC721Mintable.sol';
 
 // TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>
-contract Verifier.sol
+//contract Verifier.sol
 
 // TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class
 contract SolnSquareVerifier is CustomERC721Token {
 
     // TODO define a solutions struct that can hold an index & an address
     struct solutions {
-        indexed _index;
+        uint256 _index;
         address _address;
     }
 
@@ -24,8 +24,8 @@ contract SolnSquareVerifier is CustomERC721Token {
 
 
     // TODO Create a function to add the solutions to the array and emit the event
-    function addSolutions(indexed index, address newAddress) public {
-        solutions newStruct = solutions(index, newAddress);
+    function addSolutions(uint256 index, address newAddress) public {
+        solutions memory newStruct = solutions(index, newAddress);
         uniqSolutions[newAddress] = newStruct;
         emit solutionAdded();
     }
@@ -33,9 +33,9 @@ contract SolnSquareVerifier is CustomERC721Token {
     // TODO Create a function to mint new NFT only after the solution has been verified
     //  - make sure the solution is unique (has not been used before)
     //  - make sure you handle metadata as well as tokenSuplly
-    function mintNewNFT(address to, uint256 tokenId, string tokenURI, indexed index) public{
+    function mintNewNFT(address to, uint256 tokenId, string memory tokenURI, uint256 index) public{
         addSolutions(index, to);
-        super.mint(to, tokenId, tokenURI);
+        super._mint(to, tokenId, tokenURI);
     }
 
 }
