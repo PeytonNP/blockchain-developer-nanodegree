@@ -10,6 +10,7 @@ contract('TestERC721Mintable', accounts => {
     let token2 = 2;
     let token3 = 3;
     let token4 = 4;
+    let token5 = 5;
 
     describe('match erc721 spec', function () {
         beforeEach(async function () { 
@@ -36,10 +37,14 @@ contract('TestERC721Mintable', accounts => {
             assert.equal(await this.contract.tokenURI(token3), "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/3");
         })
 
-        it('should transfer token from one owner to another', async function () { 
-            await this.contract.transferFrom(account_two, account_three, token1);
+        it('should transfer token from one owner to another', async function () {
+            this.contract._mint(account_one, token5, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/5");
+            await this.contract.transferFrom(account_one, account_two, token5);
+            assert.equal(await this.contract.ownerOf(token5), account_two);
+            //await this.contract.approve(account_one, token1);
+            //await this.contract.transferFrom(account_one, account_two, token1);
             //await this.contract.safeTransferFrom(account_two, account_three, token1);
-            assert.equal(await this.ownerOf(token1), account_three);
+            //assert.equal(await this.contract.ownerOf(token1), account_three);
         })
     });
 
