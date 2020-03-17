@@ -19,9 +19,12 @@ contract SolnSquareVerifier is CustomERC721Token {
     // TODO define a mapping to store unique solutions submitted
     mapping (address => solutions) uniqSolutions;
 
+    function getUniqSolution(address mapAddress) public returns(uint256){
+        return uniqSolutions[mapAddress]._index;
+    }
+
     // TODO Create an event to emit when a solution is added
     event solutionAdded();
-
 
     // TODO Create a function to add the solutions to the array and emit the event
     function addSolutions(uint256 index, address newAddress) public {
