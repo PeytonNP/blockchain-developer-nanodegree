@@ -1,6 +1,7 @@
 // This file is LGPL3 Licensed
 //pragma solidity ^0.6.1;
 pragma solidity ^0.5.0;
+//pragma solidity ^0.6.4; // for generating abi using solc
 
 /**
  * @title Elliptic curve operations on twist points for alt_bn128

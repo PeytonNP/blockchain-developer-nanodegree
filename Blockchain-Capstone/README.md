@@ -19,7 +19,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 - Current file
 
 ### Write Up - Student provides Contract Addresses, Contract Abi's, OpenSea MarketPlace Storefront link's.
-- 
+- Contract ABIs: eth-contracts/contracts/ABI
 
 ## ERC721
 ### ERC721 Mintable Contract - Student completes the boilerplate ERC721 Mintable Contract in ERC721Mintable.sol
@@ -59,15 +59,8 @@ Address to purchase tokens:
 
 
 ## Deployment
-### Deployment - Student deploys ERC721 contracts with Zokrates integration.
-- Output is in Output/DeploymentOutput.txt
+### Deployment - Student deploys ERC721 contracts with Zokrates integration
 - SquareVerifier Contract Address: 0xAE275d17F7BeeC17BCa15cbB653E88966dD4DA9C
 - SolnSquareVerifier Contract Address: 0x378cd8dD5EcEaCd87B359B5d974b7d75c439ce28
-- 
-
-
-SquareVerifier ABI:
-
-
-SolInSquareVerifier ABI:
+- Output is in Output/DeploymentOutput.txt
 

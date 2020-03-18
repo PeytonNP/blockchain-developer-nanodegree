@@ -25,6 +25,7 @@ THE SOFTWARE.
 
 */
 pragma solidity >= 0.5.0; // Incompatible compiler version - please select a compiler within the stated pragma range, or use a different version of the oraclizeAPI!
+//pragma solidity ^0.6.4; // for generating abi using solc
 
 // Dummy contract only used to emit to end-user they are using wrong solc
 contract solcChecker {

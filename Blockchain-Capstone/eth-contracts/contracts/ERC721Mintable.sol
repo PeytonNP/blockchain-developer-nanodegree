@@ -1,4 +1,5 @@
 pragma solidity ^0.5.0;
+//pragma solidity ^0.6.4; // for generating abi using solc
 
 import 'openzeppelin-solidity/contracts/utils/Address.sol';
 import 'openzeppelin-solidity/contracts/drafts/Counters.sol';
