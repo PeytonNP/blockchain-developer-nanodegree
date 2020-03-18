@@ -1,0 +1,179 @@
+Peytons-Air:eth-contracts peyton$ npx truffle migrate --reset --network rinkeby
+
+Compiling your contracts...
+===========================
+> Compiling ./contracts/SquareVerifier.sol
+> Compilation warnings encountered:
+
+    /Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/contracts/SquareVerifier.sol:452:5: Warning: Function state mutability can be restricted to view
+    function addition(G2Point memory p1, G2Point memory p2) internal returns (G2Point memory r) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+> Artifacts written to /Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/build/contracts
+> Compiled successfully using:
+   - solc: 0.5.16+commit.9c3226ce.Emscripten.clang
+
+
+
+Migrations dry-run (simulation)
+===============================
+> Network name:    'rinkeby-fork'
+> Network id:      4
+> Block gas limit: 0x989680
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > block number:        6155930
+   > block timestamp:     1584492981
+   > account:             0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E
+   > balance:             18.74889763
+   > gas used:            210237
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00210237 ETH
+
+   -------------------------------------
+   > Total cost:          0.00210237 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'SquareVerifier'
+   --------------------------
+   > block number:        6155932
+   > block timestamp:     1584492984
+   > account:             0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E
+   > balance:             18.73869945
+   > gas used:            992455
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00992455 ETH
+
+
+   Deploying 'SolnSquareVerifier'
+   ------------------------------
+   > block number:        6155933
+   > block timestamp:     1584492992
+   > account:             0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E
+   > balance:             18.71002389
+   > gas used:            2867556
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.02867556 ETH
+
+   -------------------------------------
+   > Total cost:          0.03860011 ETH
+
+
+Summary
+=======
+> Total deployments:   3
+> Final cost:          0.04070248 ETH
+
+
+
+
+
+Starting migrations...
+======================
+> Network name:    'rinkeby'
+> Network id:      4
+> Block gas limit: 0x989680
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x0e0568a98c28069046923560a85dd3012f54cf59aef918c71cc90f2b7b748bb1
+   > Blocks: 0            Seconds: 12
+   > contract address:    0xfa115bCb460eB1a2375786BA7feF213a4468aABf
+   > block number:        6155931
+   > block timestamp:     1584493011
+   > account:             0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E
+   > balance:             18.74874763
+   > gas used:            225237
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00225237 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00225237 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'SquareVerifier'
+   --------------------------
+   > transaction hash:    0x794b2f4ae83416661b07a5c419392ca17a7dc441388d7356ceb4e612ed109439
+   ⠇ Blocks: 0            Seconds: 0Error: Invalid JSON RPC response: ""
+    at Object.InvalidResponse (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/web3-core-helpers/src/errors.js:42:16)
+    at XMLHttpRequest.request.onreadystatechange (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/web3-providers-http/src/index.js:92:32)
+    at XMLHttpRequestEventTarget.dispatchEvent (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
+    at XMLHttpRequest._setReadyState (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
+    at XMLHttpRequest._onHttpRequestError (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/xhr2-cookies/xml-http-request.ts:379:8)
+    at ClientRequest.<anonymous> (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/xhr2-cookies/xml-http-request.ts:266:37)
+    at ClientRequest.emit (events.js:321:20)
+    at TLSSocket.socketErrorListener (_http_client.js:424:9)
+    at TLSSocket.emit (events.js:321:20)
+    at emitErrorNT (internal/streams/destroy.js:84:8)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+   ⠇ Blocks: 0            Seconds: 4Error: Invalid JSON RPC response: ""
+    at Object.InvalidResponse (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/web3-core-helpers/src/errors.js:42:16)
+    at XMLHttpRequest.request.onreadystatechange (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/web3-providers-http/src/index.js:92:32)
+    at XMLHttpRequestEventTarget.dispatchEvent (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
+    at XMLHttpRequest._setReadyState (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
+    at XMLHttpRequest._onHttpRequestError (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/xhr2-cookies/xml-http-request.ts:379:8)
+    at ClientRequest.<anonymous> (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/xhr2-cookies/xml-http-request.ts:266:37)
+    at ClientRequest.emit (events.js:321:20)
+    at TLSSocket.socketErrorListener (_http_client.js:424:9)
+    at TLSSocket.emit (events.js:321:20)
+    at emitErrorNT (internal/streams/destroy.js:84:8)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+   > Blocks: 0            Seconds: 12
+   > contract address:    0xAE275d17F7BeeC17BCa15cbB653E88966dD4DA9C
+   > block number:        6155933
+   > block timestamp:     1584493041
+   > account:             0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E
+   > balance:             18.73839945
+   > gas used:            992455
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00992455 ETH
+
+
+   Deploying 'SolnSquareVerifier'
+   ------------------------------
+   > transaction hash:    0x40f91630722163b86db059d107f18fd864cfff8c86e57fb8c9d2affb5b29a47a
+   > Blocks: 0            Seconds: 8
+   > contract address:    0x378cd8dD5EcEaCd87B359B5d974b7d75c439ce28
+   > block number:        6155934
+   > block timestamp:     1584493056
+   > account:             0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E
+   > balance:             18.70822389
+   > gas used:            3017556
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.03017556 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.04010011 ETH
+
+
+Summary
+=======
+> Total deployments:   3
+> Final cost:          0.04235248 ETH

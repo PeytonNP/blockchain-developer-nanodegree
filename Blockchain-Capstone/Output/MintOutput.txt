@@ -1,0 +1,20 @@
+Peytons-Air:eth-contracts peyton$ node scripts/mint.js 
+(node:33786) UnhandledPromiseRejectionWarning: Error: Transaction has been reverted by the EVM:
+{
+  "blockHash": "0x908e2df860abd0e7f00b061d8277aa6f02c227be4f514056edaca8127618ad34",
+  "blockNumber": 6156016,
+  "contractAddress": null,
+  "cumulativeGasUsed": 417690,
+  "from": "0x276c1ad0c8a5bb909592d3f3781b14c6664ba90e",
+  "gasUsed": 21659,
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "status": false,
+  "to": "0x378cd8dd5eceacd87b359b5d974b7d75c439ce28",
+  "transactionHash": "0xb60ff9358a33d91c9b6272397bd4f4a8077f9e62fdf75a7e2aaebad4943d1df3",
+  "transactionIndex": 5,
+  "events": {}
+}
+    at /Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/web3-core-method/src/index.js:364:46
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+(node:33786) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:33786) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
