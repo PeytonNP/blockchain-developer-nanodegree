@@ -4,7 +4,7 @@
 /*
 TO RUN THE mint.js file
 export OWNER_ADDRESS="0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E"
-export NFT_CONTRACT_ADDRESS="0x378cd8dD5EcEaCd87B359B5d974b7d75c439ce28" // address for SolInSquareVerifier
+export NFT_CONTRACT_ADDRESS="0xDbA019f35008C25641BD25A752F02Be49cBE8C79" // address for SolInSquareVerifier
 // address for square verifier from zokrates: "0xAE275d17F7BeeC17BCa15cbB653E88966dD4DA9C"
 export NETWORK="rinkeby"
 export INFURA_KEY="6a934cd373984b579efff7226b2beb35"
@@ -21,7 +21,7 @@ const FACTORY_CONTRACT_ADDRESS = process.env.FACTORY_CONTRACT_ADDRESS
 const NFT_CONTRACT_ADDRESS = process.env.NFT_CONTRACT_ADDRESS
 const OWNER_ADDRESS = process.env.OWNER_ADDRESS
 const NETWORK = process.env.NETWORK
-const NUM_CREATURES = 12
+const NUM_CREATURES = 10
 const NUM_LOOTBOXES = 4
 const DEFAULT_OPTION_ID = 0
 const LOOTBOX_OPTION_ID = 2

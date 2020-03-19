@@ -25,32 +25,18 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 ## ERC721
 ### ERC721 Mintable Contract - Student completes the boilerplate ERC721 Mintable Contract in ERC721Mintable.sol
-- 
-
 ### ERC721 Mintable Contract Test Cases - Student writes and passes the test cases in TestERC721Mintable.js
-- 
-
 ### ERC721 Mintable Contract Zokrates Test - Student writes and passes the test cases in 'TestSquareVerifier.js'
-- 
-
-### ERC721 Mintable Contract Zokrates Test Cases - Student writes and passes the test cases in TestSolnSquareVerifier.js
-- 
-
+### ERC721 Mintable Contract Zokrates Test Cases - Student writes and passes the test cases in TestSolnSquareVerifier.js 
 
 ## Zokrates
 ### Zokrates program written using DSL - Student completes the Zokrates proof in square.code by adding the variable names in square.code
-- 
-
 ### Zokrates Test Cases - Student completes test contract in SolnSquareVerifier.sol
-- 
-
-### Zokrates Test Cases - Student writes and passes the test cases in 'TestSolnSquareVerifier.js'
-- 
-
+### Zokrates Test Cases - Student writes and passes the test cases in 'TestSolnSquareVerifier.js' 
 
 ## OpenSea Marketplace
 ### Market Place - Student list ERC721/ ZoKrates tokens & complete transactions on market place
-- 
+- https://rinkeby.opensea.io/assets/unidentified-contract-v218
 Tokens Listed on OpenSea:
 1. 
 2. 
@@ -62,7 +48,9 @@ Address to purchase tokens:
 
 ## Deployment
 ### Deployment - Student deploys ERC721 contracts with Zokrates integration
-- SquareVerifier Contract Address: 0xAE275d17F7BeeC17BCa15cbB653E88966dD4DA9C
-- SolnSquareVerifier Contract Address: 0x378cd8dD5EcEaCd87B359B5d974b7d75c439ce28
+- SquareVerifier Contract Address: 0x9973a2573673013b6f3eA6D19AB70DBcca2Abb9e
+// OLD: 0xAE275d17F7BeeC17BCa15cbB653E88966dD4DA9C
+- SolnSquareVerifier Contract Address: 0xDbA019f35008C25641BD25A752F02Be49cBE8C79
+// OLD: 0x378cd8dD5EcEaCd87B359B5d974b7d75c439ce28
 - Output is in Output/DeploymentOutput.txt
 
