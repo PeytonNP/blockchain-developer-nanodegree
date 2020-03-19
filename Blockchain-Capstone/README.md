@@ -17,6 +17,8 @@ The capstone will build upon the knowledge you have gained in the course in orde
 ## Project Deliverables
 ### Write Up - Student includes a README to explain how to test their code.
 - Current file
+#### To run tests
+- truffle test
 
 ### Write Up - Student provides Contract Addresses, Contract Abi's, OpenSea MarketPlace Storefront link's.
 - Contract ABIs: eth-contracts/contracts/ABI

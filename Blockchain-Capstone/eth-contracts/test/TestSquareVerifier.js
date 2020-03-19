@@ -28,9 +28,8 @@ contract('TestSquareVerifier', accounts => {
             this.contract = await SquareVerifier.new({from: account_one});
         })
 
-        it('should test verification with correct proof', async function () { 
-            await this.contract.verifyTx(a, b, c, inputs);
-            assert.equal(await this.contract.verifyTx(a, b, c, inputs), true);
+        it('should test verification with correct proof', async function () {
+            assert.equal(await this.contract.verifyTx.call(a, b, c, inputs), true);
         })
 
     });
@@ -40,8 +39,8 @@ contract('TestSquareVerifier', accounts => {
             this.contract = await SquareVerifier.new({from: account_one});
         })
 
-        it('should test verification with incorrect proof', async function () { 
-            assert.equal(await this.contract.verifyTx(a, b, c, falseInputs), false);
+        it('should test verification with incorrect proof', async function () {
+            assert.equal(await this.contract.verifyTx.call(a, b, c, falseInputs), false);
         })
 
     });

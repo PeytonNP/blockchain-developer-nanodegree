@@ -14,7 +14,7 @@ contract('TestERC721Mintable', accounts => {
 
     describe('match erc721 spec', function () {
         beforeEach(async function () { 
-            this.contract = await ERC721MintableComplete.new({from: account_one});
+            this.contract = await ERC721MintableComplete.new("SampleName", "SampleSymbol", {from: account_one});
 
             // TODO: mint multiple tokens
             this.contract._mint(account_two, token1, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/1");
@@ -41,21 +41,17 @@ contract('TestERC721Mintable', accounts => {
             this.contract._mint(account_one, token5, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/5");
             await this.contract.transferFrom(account_one, account_two, token5);
             assert.equal(await this.contract.ownerOf(token5), account_two);
-            //await this.contract.approve(account_one, token1);
-            //await this.contract.transferFrom(account_one, account_two, token1);
-            //await this.contract.safeTransferFrom(account_two, account_three, token1);
-            //assert.equal(await this.contract.ownerOf(token1), account_three);
         })
     });
 
     describe('have ownership properties', function () {
         beforeEach(async function () { 
-            this.contract = await ERC721MintableComplete.new({from: account_one});
+            this.contract = await ERC721MintableComplete.new("SampleName", "SampleSymbol", {from: account_one});
         })
 
         it('should fail when minting when address is not contract owner', async function () {
             try {
-                this.notOwnerContract = await ERC721MintableComplete.new({from: account_two});
+                this.notOwnerContract = await ERC721MintableComplete.new("SampleName", "SampleSymbol", {from: account_two});
                 this.contract._mint(account_three, token4, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/4");
                 assert.fail("Should fail when minting when address is not contract owner");
             }

@@ -10,7 +10,7 @@ import "./Oraclize.sol";
 contract Ownable {
     //  TODO's
     //  1) create a private '_owner' variable of type address with a public getter function
-    address private _owner;
+    address private _owner; // contract owner
 
     function getOwner() public view returns(address) {
         return _owner;
@@ -185,7 +185,7 @@ contract ERC721 is Pausable, ERC165 {
         require(to != ownerOf(tokenId), "The to address is the current owner for the given tokenId");
 
         // TODO require the msg sender to be the owner of the contract or isApprovedForAll() to be true
-        require(ownerOf(tokenId) == msg.sender || isApprovedForAll(ownerOf(tokenId), msg.sender));
+        require(getOwner() == msg.sender || isApprovedForAll(ownerOf(tokenId), msg.sender), "Not contract owner or !isApprovedForAll()");
 
         // TODO add 'to' address to token approvals
         _tokenApprovals[tokenId] = to;
@@ -283,8 +283,8 @@ contract ERC721 is Pausable, ERC165 {
         require(from == _tokenOwner[tokenId], "Requires from address to be the owner of the given token");
 
         // TODO: require token is being transfered to valid address
-        require(to != address(0), "Requries token to be transfered to a valid address");
-        
+        require(to != address(0), "Requires token to be transfered to a valid address");
+
         // TODO: clear approval
         _clearApproval(tokenId);
 
@@ -498,7 +498,7 @@ contract ERC721Enumerable is ERC165, ERC721 {
 }
 
 contract ERC721Metadata is ERC721Enumerable, usingOraclize {
-    
+
     // TODO: Create private vars for token _name, _symbol, and _baseTokenURI (string)
     string private _name;
     string private _symbol;
@@ -555,10 +555,14 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 }
 
 //  TODO's: Create CustomERC721Token contract that inherits from the ERC721Metadata contract. You can name this contract as you please
-contract CustomERC721Token is ERC721Metadata("sampleName", "sampleSymbol", "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/") {
-
+//contract CustomERC721Token is ERC721Metadata("sampleName", "sampleSymbol", "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/") {
+contract CustomERC721Token is ERC721Metadata {
     //  1) Pass in appropriate values for the inherited ERC721Metadata contract
     //      - make the base token uri: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/
+
+    constructor(string memory name, string memory symbol) ERC721Metadata(name, symbol, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/") public{
+        // trying to "pass" variaables instead of using line above
+    }
 
     //  2) create a public mint() that does the following:
     //      -can only be executed by the contract owner
