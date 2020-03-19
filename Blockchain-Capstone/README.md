@@ -51,10 +51,12 @@ Address to purchase tokens:
 
 ## Deployment
 ### Deployment - Student deploys ERC721 contracts with Zokrates integration
-- SquareVerifier Contract Address: 0x02d531848fEE6770d6Ed29A94D2d1eAaF2A0de25
+- SquareVerifier Contract Address: 0xFd08031B0D35EBf67178e5aD727458d48B5B9833
+// OLD: 0x02d531848fEE6770d6Ed29A94D2d1eAaF2A0de25
 // OLD: 0x9973a2573673013b6f3eA6D19AB70DBcca2Abb9e
 // OLD: 0xAE275d17F7BeeC17BCa15cbB653E88966dD4DA9C
-- SolnSquareVerifier Contract Address: 0x96EAeaa00F664ce51EbF8cB501d266D57824F316
+- SolnSquareVerifier Contract Address: 0x59937e6a845D6Db05aC8Ed2cf0F8C773bC7a29ca
+// OLD: 0x96EAeaa00F664ce51EbF8cB501d266D57824F316
 // OLD: 0xDbA019f35008C25641BD25A752F02Be49cBE8C79
 // OLD: 0x378cd8dD5EcEaCd87B359B5d974b7d75c439ce28
 - Output is in Output/DeploymentOutput.txt
