@@ -1,23 +1,40 @@
-node scripts/mint.js 
-(node:14356) UnhandledPromiseRejectionWarning: Error: Transaction has been reverted by the EVM:
 {
-  "blockHash": "0x81ab5bfb4ed9c928ad8bc2cd981c620025e0ce355309a13dfb96637a8d727056",
-  "blockNumber": 6162042,
+  mintTo: [Function: bound _createTxObject],
+  '0x755edd17': [Function: bound _createTxObject],
+  'mintTo(address)': [Function: bound _createTxObject]
+}
+Could not mint token
+Error: Transaction has been reverted by the EVM:
+{
+  "blockHash": "0x71add8fba4654701379b72577c87b7219e566d66805b936724ae491ccb183030",
+  "blockNumber": 6164478,
   "contractAddress": null,
-  "cumulativeGasUsed": 85959,
+  "cumulativeGasUsed": 1351254,
   "from": "0x276c1ad0c8a5bb909592d3f3781b14c6664ba90e",
   "gasUsed": 21659,
   "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "status": false,
-  "to": "0xdba019f35008c25641bd25a752f02be49cbe8c79",
-  "transactionHash": "0xdee56e7dc4db1229f57a23e37ba2fb3334ef78f62393078cade62c0b7aa47ce6",
-  "transactionIndex": 2,
+  "to": "0x96eaeaa00f664ce51ebf8cb501d266d57824f316",
+  "transactionHash": "0x540a79a97abf28d3f816dfacf8d75f3033abc346a4caf5d65bd2c1179d71572c",
+  "transactionIndex": 5,
   "events": {}
 }
     at Object.TransactionError (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/web3-core-helpers/src/errors.js:63:21)
     at Object.TransactionRevertedWithoutReasonError (/Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/web3-core-helpers/src/errors.js:75:21)
     at /Users/peyton/Documents/Nanodegrees/BlockchainDev/blockchain-developer-nanodegree/Blockchain-Capstone/eth-contracts/node_modules/web3-core-method/src/index.js:448:48
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)
-(node:14356) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 15)
-(node:14356) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
-^C
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  receipt: {
+    blockHash: '0x71add8fba4654701379b72577c87b7219e566d66805b936724ae491ccb183030',
+    blockNumber: 6164478,
+    contractAddress: null,
+    cumulativeGasUsed: 1351254,
+    from: '0x276c1ad0c8a5bb909592d3f3781b14c6664ba90e',
+    gasUsed: 21659,
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+    status: false,
+    to: '0x96eaeaa00f664ce51ebf8cb501d266d57824f316',
+    transactionHash: '0x540a79a97abf28d3f816dfacf8d75f3033abc346a4caf5d65bd2c1179d71572c',
+    transactionIndex: 5,
+    events: {}
+  }
+}

@@ -4,7 +4,7 @@
 /*
 TO RUN THE mint.js file
 export OWNER_ADDRESS="0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E"
-export NFT_CONTRACT_ADDRESS="0xDbA019f35008C25641BD25A752F02Be49cBE8C79" // address for SolInSquareVerifier
+export NFT_CONTRACT_ADDRESS="0x96EAeaa00F664ce51EbF8cB501d266D57824F316" // address for SolInSquareVerifier
 // address for square verifier from zokrates: "0xAE275d17F7BeeC17BCa15cbB653E88966dD4DA9C"
 export NETWORK="rinkeby"
 export INFURA_KEY="6a934cd373984b579efff7226b2beb35"
@@ -25,6 +25,7 @@ const NUM_CREATURES = 10
 const NUM_LOOTBOXES = 4
 const DEFAULT_OPTION_ID = 0
 const LOOTBOX_OPTION_ID = 2
+const defaultTokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/"
 
 if (!MNEMONIC || !INFURA_KEY || !OWNER_ADDRESS || !NETWORK) {
     console.error("Please set a mnemonic, infura key, owner, network, and contract address.")
@@ -76,9 +77,23 @@ async function main() {
 
         // Creatures issued directly to the owner.
         for (var i = 0; i < NUM_CREATURES; i++) {
-            const result = await nftContract.methods.mintTo(OWNER_ADDRESS).send({ from: OWNER_ADDRESS });
+            //const result = await nftContract.methods.mintTo(OWNER_ADDRESS).send({ from: OWNER_ADDRESS });
+            // default uri https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/
+            // function mintNewNFT(address to, uint256 tokenId, string memory tokenURI, uint256 index) public{
+            console.log(nftContract.methods)
+            try {
+                const result = await nftContract.methods.mintTo(OWNER_ADDRESS).send({ from: OWNER_ADDRESS });
+                //const result = await nftContract.methods.mintNewNFT(OWNER_ADDRESS, i, defaultTokenURI, i).send({from: OWNER_ADDRESS});
+            } catch(error) {
+                console.log('Could not mint token')
+                console.error(error)
+                process.exit(1)
+            }
+            
             console.log("Minted creature. Transaction: " + result.transactionHash)
         }
+
+
     } else if (FACTORY_CONTRACT_ADDRESS) {
         const factoryContract = new web3Instance.eth.Contract(FACTORY_ABI, FACTORY_CONTRACT_ADDRESS, { gasLimit: "1000000" })
 

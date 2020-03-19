@@ -44,7 +44,7 @@ contract('TestSolnSquareVerifier', accounts => {
             */
 
             try {
-                this.contract.addSolutions(index, account_one, token1, a, b, c, inputs);
+                await this.contract.addSolutions(index, account_one, token1, a, b, c, inputs);
             } catch (error) {
                 assert.equal(false, true); // false
             }
@@ -59,7 +59,7 @@ contract('TestSolnSquareVerifier', accounts => {
 
         it('should test if ERC721 token can be minted', async function () {
             try {
-                this.contract._mint(account_one, token1, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/1");
+                await this.contract._mint(account_one, token1, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/1");
             } catch (error) {
                 assert.equal(false, true);
             }    
