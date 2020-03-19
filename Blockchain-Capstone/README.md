@@ -37,8 +37,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 ## OpenSea Marketplace
 ### Market Place - Student list ERC721/ ZoKrates tokens & complete transactions on market place
-- https://rinkeby.opensea.io/assets/unidentified-contract-v218
-https://rinkeby.opensea.io/assets/unidentified-contract-v224
+- https://rinkeby.opensea.io/assets/unidentified-contract-v226
 SEE MESSAGE BELOW
 Tokens Listed on OpenSea:
 1. 

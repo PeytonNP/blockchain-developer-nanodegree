@@ -866,7 +866,7 @@ async function main() {
         const nftContract = new web3Instance.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, { gasLimit: "1000000" })
 
         // Creatures issued directly to the owner.
-        for (var i = 12; i < 15; i++) {
+        for (var i = 100; i < 111; i++) {
             //const result = await nftContract.methods.mintTo(OWNER_ADDRESS).send({ from: OWNER_ADDRESS });
             // default uri https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/
             // function mintNewNFT(address to, uint256 tokenId, string memory tokenURI, uint256 index) public{
@@ -876,6 +876,7 @@ async function main() {
                 const result = await nftContract.methods.mintNewNFT(OWNER_ADDRESS, i, defaultTokenURI, i, a, b, c, inputs).send({ from: OWNER_ADDRESS });
                 //const result = await nftContract.methods.mintTo(OWNER_ADDRESS, i, defaultTokenURI, i, a, b, c, inputs).send({ from: OWNER_ADDRESS });
                 console.log("minted tokens: " + result);
+                process.exit(1)
                 //const result = await nftContract.methods.mintNewNFT(OWNER_ADDRESS, i, defaultTokenURI, i).send({from: OWNER_ADDRESS});
             } catch(error) {
                 console.log('Could not mint token')
