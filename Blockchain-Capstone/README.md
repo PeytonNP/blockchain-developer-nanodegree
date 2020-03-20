@@ -39,12 +39,10 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 ## OpenSea Marketplace
 ### Market Place - Student list ERC721/ ZoKrates tokens & complete transactions on market place
-- https://rinkeby.opensea.io/assets/unidentified-contract-v226
-SEE MESSAGE BELOW
-Tokens Listed on OpenSea: https://rinkeby.opensea.io/assets/unidentified-contract-v230
-Account used to sell tokens: 0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E
-Account used to purchase tokens: 0x8514E8da5E33d8430e7DdFFd504173c921bD79Ac
-Tokens put up for sale and purchased: 
+- Tokens Listed on OpenSea: https://rinkeby.opensea.io/assets/unidentified-contract-v230
+- Account used to sell tokens: 0x276c1AD0C8a5BB909592D3f3781b14c6664BA90E
+- Account used to purchase tokens: 0x8514E8da5E33d8430e7DdFFd504173c921bD79Ac
+#### Tokens put up for sale and purchased: 
 1. https://rinkeby.opensea.io/assets/0x6aba1487b4af9c67aa20cb7ee9b9d9bd80ba7847/1
 2. https://rinkeby.opensea.io/assets/0x6aba1487b4af9c67aa20cb7ee9b9d9bd80ba7847/2
 3. https://rinkeby.opensea.io/assets/0x6aba1487b4af9c67aa20cb7ee9b9d9bd80ba7847/3
