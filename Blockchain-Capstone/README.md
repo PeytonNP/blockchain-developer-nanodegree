@@ -53,8 +53,11 @@ Tokens put up for sale and purchased:
 
 See metadata images folder as tokens minted with ids from 6 - 10 do not exist. 
 
+##### Metadata exists (see all images in MetadataImages directory)
 ![Existing metadata example](MetadataImages/Listing1.png)
-![Non-existing metadata example](MetadataImages/Listing6.png))
+
+##### Metadata does not exist (see all images in MetadataImages directory)
+![Non-existing metadata example](MetadataImages/Listing6.png)
 
 ## Deployment
 ### Deployment - Student deploys ERC721 contracts with Zokrates integration
